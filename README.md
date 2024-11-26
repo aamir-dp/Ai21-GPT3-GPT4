@@ -26,6 +26,7 @@ This function sends a request to AI21 Studio's GPT-based API to generate a respo
 ---
 
 ## `GPT3(prompt, cellValue, temperature, topP)`
+## `GPT4(prompt, cellValue, temperature, topP)`
 
 ### Description:
 Combines the provided `prompt` with a `cellValue` and sends the request to the `jamba-1.5-mini` model.
@@ -39,3 +40,31 @@ Combines the provided `prompt` with a `cellValue` and sends the request to the `
 ### Example:
 ```javascript
 GPT3("Summarize this text:", "Artificial intelligence is transforming industries.", 0.7, 1.0);
+GPT4("Generate a blog title:", "The benefits of mindfulness in daily life.", 0.7, 1.0);
+```
+## `GPTHelp(model)`
+
+### Description:
+Provides a help guide for using GPT3 and GPT4 utility functions.
+
+### Parameters:
+- **`model`** *(string)*: Specify `"GPT3"` or `"GPT4"` to get help for the respective function.
+
+### Output:
+Returns detailed instructions on how to use the specified model, including descriptions of parameters and example formulas.
+
+### Example:
+```javascript
+GPTHelp("GPT3");
+GPTHelp("GPT4");
+```
+## General Notes
+
+### Retry Logic:
+- The `GPT` function retries failed requests up to 5 times with exponential backoff, starting with a 2-second delay between attempts.
+
+### Delays:
+- Both `GPT3` and `GPT4` introduce a 2-second delay between requests to prevent rate limits.
+
+### AI21 Studio API Key:
+- Replace `"your-api-key-goes-here"` with your actual API key for AI21 Studio.
